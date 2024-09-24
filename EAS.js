@@ -9,4 +9,14 @@ for (let i = 0; i < 256; i ++){
 function createGrid(){
     const div = document.createElement("div");
     container.appendChild(div);
+   
+
+    div.addEventListener("mouseenter", (e) => {
+        div.style.backgroundColor = "red";
+    });
 }
+
+
+
+
+
