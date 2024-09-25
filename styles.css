@@ -7,23 +7,21 @@ body, html {
     align-items: center;
 }
 
-button {
+.buttons {
     margin-top: 100px;
-    
 }
 
 .container {
     margin-top: 100px;
     width: 100%;
-    flex: 1 0 calc(100% / 16);
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    
 }
 
-.container div {
-    flex: 1 0 calc(100% / 16);
+.grid-item {
+    transition: background-color 0.1s ease; /* Smooth background color transition */
+    flex: 1 0 calc(100% / 16); /* Default flex value, updated dynamically in JS */
     aspect-ratio: 1 / 1;
     background-color: lightblue;
     box-sizing: border-box;
