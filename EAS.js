@@ -41,9 +41,18 @@ function removeGrid(){
    });
 }
 
+const randomRgbColor = () => {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 container.addEventListener("mouseenter", (e) => {
     if (e.target.classList.contains("grid-item")) {
-        e.target.style.backgroundColor = "red";
+
+        e.target.style.backgroundColor = "white";
+        e.target.style.backgroundColor = randomRgbColor();
     }
     
 }, true);
