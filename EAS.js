@@ -1,10 +1,12 @@
 const container = document.querySelector(".container");
 const resetBtn = document.querySelector("#resetBtn");
 const resizeBtn = document.querySelector("#resizeBtn");
+const colorSelect = document.getElementById("colorSelect");
 let size = 16;
+let selectedColor = "black";
+
 
 function createGrid(){
-    
     const totalDivs = size * size;
     for (let i = 0; i < totalDivs; i ++){
         const div = document.createElement("div");
@@ -50,9 +52,20 @@ const randomRgbColor = () => {
 
 container.addEventListener("mouseenter", (e) => {
     if (e.target.classList.contains("grid-item")) {
+        let currentOpacity = 1;
+        if(e.target.dataset.opacity){
+            currentOpacity = parseFloat(e.target.dataset.opacity) - 0.1;
 
-        e.target.style.backgroundColor = "white";
-        e.target.style.backgroundColor = randomRgbColor();
+        }
+        e.target.dataset.opacity = currentOpacity;
+        if (selectedColor === "random"){
+            e.target.style.backgroundColor = randomRgbColor();
+        }
+        else{
+            e.target.style.backgroundColor = selectedColor;
+        }
+        
+        e.target.style.opacity = currentOpacity;
     }
     
 }, true);
@@ -70,8 +83,14 @@ resizeBtn.addEventListener("click", function (e) {
        resizeGrid(input)
     });
 
+colorSelect.addEventListener('change', function(){
+    selectedColor = colorSelect.value;
+});
+
 
 createGrid(size);
+
+
 
 
 
