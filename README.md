@@ -7,7 +7,8 @@ this.
 
 Skills learnt:
 - Using different event listeners (mouseenter, change, click)
-- Getting a random RBG colour 
+- Event delegation
+- Getting a random RGB colour 
 - Looping through the children of an element 
 - Opacity CSS property to darken the squares
 - Created a select element to allow user to change colour
