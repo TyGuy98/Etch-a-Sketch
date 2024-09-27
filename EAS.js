@@ -29,7 +29,7 @@ function resizeGrid(input){
 }
 
 function validateInput(input){
-    if (isNaN(input) || input > 100){
+    if (isNaN(input) || input > 100 || input === ""){
         return false;
     }
 
@@ -78,15 +78,26 @@ resizeBtn.addEventListener("click", function (e) {
     let input = "";
     do {
         input =  prompt("Please enter a number (100 max)");
+
+        if (input === null || input.trim() === ""){
+            return;
+        }
+
     }while(!(validateInput(input)));
+
 
        resizeGrid(input)
     });
 
 colorSelect.addEventListener('change', function(){
     selectedColor = colorSelect.value;
-});
 
+    if (selectedColor === "random") {
+        colorSelect.style.border = `5px solid black`;
+    } else {
+        colorSelect.style.border = `5px solid ${selectedColor}`;
+    }
+});
 
 createGrid(size);
 
